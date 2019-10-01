@@ -6,10 +6,11 @@ node {
         echo 'branchName--------->'+branchName
     }
     stage('Maven') {
-        def MAVEN_HOME = "${tool 'M3'}/bin"
+        //def MAVEN_HOME = "${tool 'M3'}/bin"
+        def MAVEN_HOME = "D:/softwares/apache-maven-3.6.1"
         //MAVEN_HOME = "${MAVEN_HOME}/bin"
         echo 'MAVEN_HOME--------->'+MAVEN_HOME
-        env.PATH = "${MAVEN_HOME}/bin:${env.PATH}"
+        //env.PATH = "${MAVEN_HOME}/bin:${env.PATH}"
         echo 'env.PATH----->['+ env.PATH +']'
         
         String mi = getMicroserviceInformation()
@@ -41,7 +42,9 @@ private String runMavenVerify(MAVEN_HOME) {
     // sh "ls -lrth ${MAVEN_HOME}" // executing shell commands in jenkinsfile
     // String chmodStatus = sh script: "chmod +x ${MAVEN_HOME}", returnStatus: true // executing shell commands in jenkinsfile and taking respose from that
     //echo chmodStatus
-    int verificationStatus = sh script: "${MAVEN_HOME}/mvn clean verify --fail-at-end --batch-mode --update-snapshots", returnStatus: true
+    //int verificationStatus = sh script: "${MAVEN_HOME}/mvn clean verify --fail-at-end --batch-mode --update-snapshots", returnStatus: true
+    int verificationStatus = bat script: "${MAVEN_HOME}/mvn clean verify --fail-at-end --batch-mode --update-snapshots", returnStatus: true
+
     echo 'Verification Status:['+verificationStatus+']'
     
     if (verificationStatus != 0) {
