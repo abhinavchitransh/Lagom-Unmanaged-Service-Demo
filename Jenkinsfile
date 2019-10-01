@@ -48,7 +48,7 @@ private String runMavenVerify(MAVEN_HOME) {
     // String chmodStatus = sh script: "chmod +x ${MAVEN_HOME}", returnStatus: true // executing shell commands in jenkinsfile and taking respose from that
     //echo chmodStatus
     //int verificationStatus = sh script: "${MAVEN_HOME}/mvn clean verify --fail-at-end --batch-mode --update-snapshots", returnStatus: true
-    int verificationStatus = bat script: "${MAVEN_HOME}/mvn clean verify --fail-at-end --batch-mode --update-snapshots", returnStatus: true
+    int verificationStatus = bat script: "mvn clean verify --fail-at-end --batch-mode --update-snapshots", returnStatus: true
 
     echo 'Verification Status:['+verificationStatus+']'
     
