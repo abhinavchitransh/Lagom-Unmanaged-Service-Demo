@@ -30,11 +30,16 @@ node {
 }
 
 private String getMicroserviceInformation() {
-    def pom = readMavenPom file: 'pom.xml'
+   // def pom = readMavenPom file: 'pom.xml'
     
-    String artifactId = pom.artifactId
-    String groupId = pom.groupId
-    String version = pom.version    
+   // String artifactId = pom.artifactId
+   // String groupId = pom.groupId
+   // String version = pom.version
+
+    String artifactId = my-first-program
+    String groupId = com.example.hello
+    String version = 1.0-SNAPSHOT
+
     return artifactId+":"+groupId+":"+version
 }
 
