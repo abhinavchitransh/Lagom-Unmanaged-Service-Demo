@@ -36,9 +36,9 @@ private String getMicroserviceInformation() {
    // String groupId = pom.groupId
    // String version = pom.version
 
-    String artifactId = my-first-program
-    String groupId = com.example.hello
-    String version = 1.0-SNAPSHOT
+    String artifactId = "my-first-program"
+    String groupId = "com.example.hello"
+    String version = "1.0-SNAPSHOT"
 
     return artifactId+":"+groupId+":"+version
 }
